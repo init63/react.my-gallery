@@ -5,6 +5,7 @@
   z-index: 2;
   width: 100%;
   background-color: black;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 20%);
 }
 
 .wrapper {
@@ -18,4 +19,13 @@
 .title {
   font-size: 28px;
   color: white;
+}
+
+.button {
+  font-size: 28px;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  background: transparent;
+  border: none;
 }
