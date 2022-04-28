@@ -1,0 +1,36 @@
+.card {
+  height: 100%;
+  overflow: hidden;
+  background-color: #333;
+  border: 1px solid black;
+}
+
+.imageWrapper {
+  height: 250px;
+  overflow: hidden;
+}
+
+.imageWrapper img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.commentWrapper {
+  display: flex;
+  padding: 8px;
+}
+
+.commentWrapper p {
+  flex-grow: 1;
+  margin: 0;
+  color: #cecece;
+}
+
+.commentWrapper button {
+  color: #cecece;
+  background-color: transparent;
+  border: none;
+  transform: scale(-1, 1);
+}
