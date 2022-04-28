@@ -1,4 +1,4 @@
-#My Gallery
+# My Gallery
 
-##Stack used
+## Stack used
 Express | Mongoose | NodeJS | React | Redux
