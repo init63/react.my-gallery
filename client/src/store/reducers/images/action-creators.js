@@ -1,9 +1,11 @@
+import ImageService from '../../../api/ImageService';
+
 export const ImagesActionCreators = {
   setImage: (image) => ({type: 'SET_IMAGE', payload: image}),
   setAllImages: (images) => ({type: 'SET_ALL_IMAGES', payload: images}),
   getAllImages: () => async (dispatch) => {
-    const allImages = JSON.parse(localStorage.getItem('images')) || [];
-    dispatch(ImagesActionCreators.setAllImages(allImages));
+    const responce = await ImageService.getAllImages();
+    dispatch(ImagesActionCreators.setAllImages(responce.data));
   },
   addImage: (imageInfo) => async (dispatch) => {
     const storageData = JSON.parse(localStorage.getItem('images')) || [];

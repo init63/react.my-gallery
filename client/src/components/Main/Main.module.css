@@ -4,8 +4,32 @@
   margin-top: 50px;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 575px) {
+  .main {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
   .main {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .main {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1399px) {
+  .main {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1400px) {
+  .main {
+    grid-template-columns: repeat(6, 1fr);
   }
 }

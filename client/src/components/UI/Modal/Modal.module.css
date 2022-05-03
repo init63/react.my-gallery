@@ -10,7 +10,7 @@
   height: 100vh;
   background-color: rgb(0 0 0 / 40%);
   opacity: 0;
-  transition: .5s;
+  transition: .2s;
 }
 
 .content {
@@ -18,6 +18,8 @@
   padding: 16px;
   background-color: white;
   border-radius: 8px;
+  transition: .2s;
+  transform: scale(0);
 }
 
 .buttonClose {
@@ -36,4 +38,8 @@
 .active {
   z-index: 5;
   opacity: 1;
+}
+
+.active .content {
+  transform: scale(1);
 }

@@ -5,12 +5,12 @@ import cl from './ImageViewer.module.css';
 
 const ImageViewer = () => {
   const {setIsViewerActive} = useActions();
-  const {isViewerActive, url} = useSelector((state) => state.viewer);
+  const {isViewerActive, imageName} = useSelector((state) => state.viewer);
   const activeClasses = [cl.viewer, cl.active].join(' ');
 
   return (
     <div className={isViewerActive ? activeClasses : cl.viewer} onClick={() => setIsViewerActive(false)}>
-      <img src={url} alt='view' />
+      <img src={`${process.env.REACT_APP_API_URL}/${imageName}`} alt='view' />
     </div>
   );
 };
