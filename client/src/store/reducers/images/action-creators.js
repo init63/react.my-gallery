@@ -8,15 +8,7 @@ export const ImagesActionCreators = {
     dispatch(ImagesActionCreators.setAllImages(responce.data));
   },
   addImage: (imageInfo) => async (dispatch) => {
-    const storageData = JSON.parse(localStorage.getItem('images')) || [];
-    if (storageData.length === 0) {
-      imageInfo.id = 1;
-    } else {
-      const lastItemId = storageData[storageData.length - 1].id;
-      imageInfo.id = lastItemId + 1;
-    }
-    storageData.push(imageInfo);
-    localStorage.setItem('images', JSON.stringify(storageData));
-    dispatch(ImagesActionCreators.setImage(imageInfo));
+    const responce = await ImageService.addImage(imageInfo)
+    dispatch(ImagesActionCreators.setImage(responce.data));
   },
 };

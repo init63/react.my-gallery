@@ -13,12 +13,14 @@ class ImageController {
 
   async add(req, res) {
     try {
-      const {order, comment} = req.body;
+      const {comment} = req.body;
       const {img} = req.files;
+      const allImages = await Image.findAll();
+      const orderLastImage = allImages[allImages.length - 1].order;
       let fileName = uuidv4() + '.jpg';
       img.mv(path.resolve(path.dirname(''), 'static', fileName));
 
-      const image = await Image.create({order, name: fileName, comment});
+      const image = await Image.create({order: orderLastImage + 1, name: fileName, comment});
 
       return res.json(image);
     } catch (e) {
