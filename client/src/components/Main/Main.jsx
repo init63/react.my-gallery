@@ -1,6 +1,7 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
-import Card from '../Card/Card';
+import Card from '../Card';
+import NotFound from '../NotFound';
 import cl from './Main.module.css';
 
 const Main = () => {
@@ -9,7 +10,7 @@ const Main = () => {
   return (
     <main className={cl.main}>
       {images.length === 0 ? (
-        <p>Images not found...</p>
+        <NotFound />
       ) : (
         images.map((image) => <Card id={image.id} imageName={image.name} comment={image.comment} key={image.id} />)
       )}
