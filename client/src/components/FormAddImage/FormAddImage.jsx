@@ -3,30 +3,30 @@ import {useActions} from '../../hooks/useActions';
 import cl from './FormAddImage.module.css';
 
 const FormAddImage = () => {
-  const [imageFiles, setImageFiles] = useState([]);
+  const [imageFile, setImageFile] = useState(null);
   const [comment, setComment] = useState('');
   const {addImage, setIsModalActive} = useActions();
 
   function addNewImage(e) {
     e.preventDefault();
     const formData = new FormData();
-    formData.append('files', imageFiles);
-    formData.append('comment', comment);
+    formData.append('file', imageFile);
+    formData.append('description', comment);
     addImage(formData);
     setIsModalActive(false);
-    setImageFiles([]);
+    setImageFile(null);
     setComment('');
   }
 
   const selectFile = (e) => {
-    setImageFiles(e.target.files);
+    setImageFile(e.target.files[0]);
   };
 
   return (
     <form className={cl.form}>
       <div className={cl.wrapper}>
         <label htmlFor='file'>Add image:</label>
-        <input onChange={selectFile} id='file' type='file' multiple accept='image/png, image/jpeg' />
+        <input onChange={selectFile} id='file' type='file' accept='image/png, image/jpeg' />
       </div>
       <div className={cl.wrapper}>
         <label htmlFor='comment'>Comment:</label>

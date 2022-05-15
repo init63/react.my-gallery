@@ -12,7 +12,7 @@ const Main = () => {
       {images.length === 0 ? (
         <NotFound />
       ) : (
-        images.map((image) => <Card id={image.id} imageName={image.name} comment={image.comment} key={image.id} />)
+        images.map((image) => <Card id={image.id} imageName={image.file_name} description={image.description} key={image.id} />)
       )}
     </main>
   );

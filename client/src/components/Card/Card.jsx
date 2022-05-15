@@ -2,7 +2,7 @@ import React from 'react';
 import {useActions} from '../../hooks/useActions';
 import cl from './Card.module.css';
 
-const Card = ({id, imageName, comment}) => {
+const Card = ({id, imageName, description}) => {
   const {setIsViewerActive, setImageName} = useActions();
 
   const setData = (imageName) => {
@@ -11,7 +11,7 @@ const Card = ({id, imageName, comment}) => {
   };
 
   return (
-    <article className={cl.card}>
+    <div className={cl.card}>
       <div className={cl.imageWrapper}>
         <img
           src={`${process.env.REACT_APP_API_URL}/${imageName}`}
@@ -19,11 +19,11 @@ const Card = ({id, imageName, comment}) => {
           onClick={() => setData(imageName)}
         />
       </div>
-      <div className={cl.commentWrapper}>
-        <p>{comment}</p>
+      <div className={cl.descriptionWrapper}>
+        <p>{description}</p>
         <button>&#9998;</button>
       </div>
-    </article>
+    </div>
   );
 };
 

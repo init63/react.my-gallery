@@ -1,6 +1,7 @@
 import {v4 as uuidv4} from 'uuid';
 import path from 'path';
 import {Image} from '../models/models.js';
+import {response} from 'express';
 
 // TODO: метод getAll().
 // Добавить сортировку, что бы картинки отправлялись на клиент в порядке
@@ -13,28 +14,27 @@ class ImageController {
 
   async add(req, res) {
     try {
-      const {comment} = req.body;
-      const {files} = req.files;
+      const {description} = req.body;
+      const {file} = req.files;
       const allImages = await Image.findAll();
-      const images = [];
 
       let newOrder;
 
       if (allImages.length === 0) {
         newOrder = 1;
       } else {
-        newOrder = allImages[allImages.length - 1].order + 1;
+        const lastImage = allImages[allImages.length - 1];
+        const orderLastImage = lastImage.order;
+        newOrder = orderLastImage + 1;
       }
 
-      for (const file in files) {
-        let fileExtension = file.name.split('.')[-1];
-        let fileName = uuidv4() + fileExtension;
-        file.mv(path.resolve(path.dirname(''), 'static', fileName));
-        images.push(await Image.create({order: newOrder, name: fileName, comment}));
-        newOrder++;
-      }
+      const fileNameAndExtension = file.name.split('.');
+      const fileExtension = fileNameAndExtension[fileNameAndExtension.length - 1];
+      const fileName = `${uuidv4()}.${fileExtension}`;
+      file.mv(path.resolve(path.dirname(''), 'static', fileName));
+      const image = await Image.create({order: newOrder, file_name: fileName, description});
 
-      return res.json(images);
+      return res.json(image);
     } catch (e) {
       console.log(e.message);
     }
