@@ -3,15 +3,22 @@ import {useSelector} from 'react-redux';
 import {useActions} from '../../../hooks/useActions';
 import cl from './Modal.module.css';
 
-const Modal = ({children}) => {
-  const {setIsModalActive} = useActions();
-  const {isModalActive} = useSelector((state) => state.modal);
+const Modal = ({isBackground = true, children}) => {
+  const {disable} = useActions();
+  const {isActive} = useSelector((state) => state.modal);
   const activeClasses = [cl.modal, cl.active].join(' ');
 
+  if (isBackground === false) {
+    return (
+      <div className={isActive ? activeClasses : cl.modal} onClick={disable}>
+        {children}
+      </div>
+    );
+  }
   return (
-    <div className={isModalActive ? activeClasses : cl.modal} onClick={() => setIsModalActive(false)}>
+    <div className={isActive ? activeClasses : cl.modal} onClick={disable}>
       <div className={cl.content} onClick={(e) => e.stopPropagation()}>
-        <button className={cl.buttonClose} onClick={() => setIsModalActive(false)}>
+        <button className={cl.buttonClose} onClick={disable}>
           &#215;
         </button>
         {children}

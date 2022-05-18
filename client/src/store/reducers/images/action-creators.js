@@ -8,7 +8,7 @@ export const ImagesActionCreators = {
     dispatch(ImagesActionCreators.setAllImages(responce.data));
   },
   addImage: (imageInfo) => async (dispatch) => {
-    const responce = await ImageService.addImage(imageInfo)
+    const responce = await ImageService.addImage(imageInfo);
     dispatch(ImagesActionCreators.setImage(responce.data));
   },
 };

@@ -4,18 +4,18 @@ import cl from './FormAddImage.module.css';
 
 const FormAddImage = () => {
   const [imageFile, setImageFile] = useState(null);
-  const [comment, setComment] = useState('');
+  const [description, setDescription] = useState('');
   const {addImage, setIsModalActive} = useActions();
 
   function addNewImage(e) {
     e.preventDefault();
     const formData = new FormData();
     formData.append('file', imageFile);
-    formData.append('description', comment);
+    formData.append('description', description);
     addImage(formData);
     setIsModalActive(false);
     setImageFile(null);
-    setComment('');
+    setDescription('');
   }
 
   const selectFile = (e) => {
@@ -29,8 +29,8 @@ const FormAddImage = () => {
         <input onChange={selectFile} id='file' type='file' accept='image/png, image/jpeg' />
       </div>
       <div className={cl.wrapper}>
-        <label htmlFor='comment'>Comment:</label>
-        <textarea value={comment} onChange={(e) => setComment(e.target.value)} id='comment' name='comment'></textarea>
+        <label htmlFor='description'>Description:</label>
+        <textarea value={description} onChange={(e) => setDescription(e.target.value)} id='description' name='description'></textarea>
       </div>
       <div className={cl.buttonWrapper}>
         <button onClick={addNewImage}>Add</button>
