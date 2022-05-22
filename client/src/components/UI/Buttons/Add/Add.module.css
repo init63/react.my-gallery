@@ -10,4 +10,9 @@
 
 .addIcon {
   fill: #fff;
+  transition: .2s;
+}
+
+.add:hover .addIcon {
+  fill: #bfbfbf;
 }
