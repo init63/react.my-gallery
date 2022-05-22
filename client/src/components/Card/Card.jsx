@@ -1,5 +1,6 @@
 import React from 'react';
 import ImageSmall from '../ImageSmall';
+import Edit from '../UI/Buttons/Edit';
 import cl from './Card.module.css';
 
 const Card = ({id, imageName, description}) => {
@@ -7,8 +8,8 @@ const Card = ({id, imageName, description}) => {
     <div className={cl.card}>
       <ImageSmall imageName={imageName} />
       <div className={cl.descriptionWrapper}>
-        <p>{description}</p>
-        <button>&#9998;</button>
+        <p className={cl.description}>{description}</p>
+        <Edit />
       </div>
     </div>
   );
