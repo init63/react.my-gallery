@@ -42,7 +42,17 @@ class ImageController {
 
   async editOrder(req, res) {}
 
-  async editComment(req, res) {}
+  async editDescription(req, res) {
+    try {
+      const editImage = await Image.update(
+        {description: req.body.newDescription},
+        {returning: true, where: {id: req.body.id}}
+      );
+      return res.json(editImage[1]);
+    } catch (e) {
+      console.log(e);
+    }
+  }
 }
 
 export default new ImageController();
