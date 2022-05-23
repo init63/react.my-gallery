@@ -11,4 +11,8 @@ export const ImagesActionCreators = {
     const responce = await ImageService.addImage(imageInfo);
     dispatch(ImagesActionCreators.setImage(responce.data));
   },
+  editImageDescription: (data) => async (dispatch) => {
+    const responce = await ImageService.editDescription(data);
+    // dispatch(ImagesActionCreators.setImage(responce.data));
+  },
 };

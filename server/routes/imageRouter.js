@@ -6,6 +6,6 @@ const router = new Router();
 router.get('/', imageController.getAll);
 router.post('/add', imageController.add);
 router.put('/edit-order', imageController.editOrder);
-router.put('/edit-decription', imageController.editDescription);
+router.put('/edit-description', imageController.editDescription);
 
 export default router;

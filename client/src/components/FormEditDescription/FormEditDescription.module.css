@@ -1,0 +1,22 @@
+.form {
+  display: grid;
+  row-gap: 16px;
+  width: 320px;
+  padding-top: 16px;
+}
+
+.wrapper {
+  display: grid;
+}
+
+.form textarea {
+  resize: none;
+}
+
+.buttonWrapper {
+  text-align: center;
+}
+
+.buttonWrapper button {
+  margin: 0;
+}

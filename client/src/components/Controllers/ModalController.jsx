@@ -2,6 +2,7 @@ import React from 'react';
 import {useSelector} from 'react-redux';
 import Modal from '../UI/Modal';
 import FormAddImage from '../FormAddImage';
+import FormEditDescription from '../FormEditDescription';
 import ImageFull from '../ImageFull';
 
 const ModalController = () => {
@@ -12,6 +13,12 @@ const ModalController = () => {
       return (
         <Modal>
           <FormAddImage />
+        </Modal>
+      );
+    case 'EDIT_DESCRIPTION':
+      return (
+        <Modal>
+          <FormEditDescription />
         </Modal>
       );
     case 'SHOW_FULL_IMAGE':

@@ -9,7 +9,7 @@ const Card = ({id, imageName, description}) => {
       <ImageSmall imageName={imageName} />
       <div className={cl.descriptionWrapper}>
         <p className={cl.description}>{description}</p>
-        <Edit />
+        <Edit id={id} description={description}/>
       </div>
     </div>
   );

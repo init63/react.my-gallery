@@ -8,4 +8,8 @@ export default class ImageService {
   static async addImage(imageInfo) {
     return axios.post(process.env.REACT_APP_API_URL + '/api/images/add', imageInfo);
   }
+
+  static async editDescription(data) {
+    return axios.put(process.env.REACT_APP_API_URL + '/api/images/edit-description', data);
+  }
 }

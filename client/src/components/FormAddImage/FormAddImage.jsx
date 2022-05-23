@@ -5,7 +5,7 @@ import cl from './FormAddImage.module.css';
 const FormAddImage = () => {
   const [imageFile, setImageFile] = useState(null);
   const [description, setDescription] = useState('');
-  const {addImage, setIsModalActive} = useActions();
+  const {addImage, setIsActive} = useActions();
 
   function addNewImage(e) {
     e.preventDefault();
@@ -13,7 +13,7 @@ const FormAddImage = () => {
     formData.append('file', imageFile);
     formData.append('description', description);
     addImage(formData);
-    setIsModalActive(false);
+    setIsActive(false);
     setImageFile(null);
     setDescription('');
   }
