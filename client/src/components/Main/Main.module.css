@@ -4,6 +4,24 @@
   margin-top: 50px;
 }
 
+.card-enter {
+  transform: scale(0);
+}
+
+.card-enter-active {
+  transition: all .5s ease-in;
+  transform: scale(1);
+}
+
+.card-exit {
+  opacity: 1;
+}
+
+.card-exit-active {
+  opacity: 0;
+  transition: all .5s ease-in;
+}
+
 /* @media (max-width: 575px) {
   .main {
     grid-template-columns: 1fr;

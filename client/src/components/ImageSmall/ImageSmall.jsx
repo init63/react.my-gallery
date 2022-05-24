@@ -2,7 +2,7 @@ import React from 'react';
 import {useActions} from '../../hooks/useActions';
 import cl from './ImageSmall.module.css';
 
-const ImageSmall = ({imageName}) => {
+const ImageSmall = ({imageName, description}) => {
   const {showModal} = useActions();
 
   function onClick() {
@@ -14,7 +14,7 @@ const ImageSmall = ({imageName}) => {
       <img
         className={cl.imageSmall}
         src={`${process.env.REACT_APP_API_URL}/${imageName}`}
-        alt='gallery img'
+        alt={description}
         onClick={onClick}
       />
     </div>
