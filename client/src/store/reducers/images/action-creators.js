@@ -2,6 +2,7 @@ import ImageService from '../../../api/ImageService';
 
 export const ImagesActionCreators = {
   setImage: (image) => ({type: 'SET_IMAGE', payload: image}),
+  setEditImageDescription: (image) => ({type: 'SET_EDIT_IMAGE_DESCRIPTION', payload: image}),
   setAllImages: (images) => ({type: 'SET_ALL_IMAGES', payload: images}),
   getAllImages: () => async (dispatch) => {
     const responce = await ImageService.getAllImages();
@@ -13,6 +14,6 @@ export const ImagesActionCreators = {
   },
   editImageDescription: (data) => async (dispatch) => {
     const responce = await ImageService.editDescription(data);
-    // dispatch(ImagesActionCreators.setImage(responce.data));
+    dispatch(ImagesActionCreators.setEditImageDescription(responce.data[0]));
   },
 };
