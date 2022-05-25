@@ -1,14 +1,15 @@
 import {v4 as uuidv4} from 'uuid';
 import path from 'path';
 import {Image} from '../models/models.js';
-import {response} from 'express';
 
 // TODO: метод getAll().
 // Добавить сортировку, что бы картинки отправлялись на клиент в порядке
 // убывания
 class ImageController {
   async getAll(req, res) {
-    const images = await Image.findAll();
+    const images = await Image.findAll({
+      order: [['order', 'DESC']],
+    });
     res.json(images);
   }
 
