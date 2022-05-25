@@ -9,7 +9,7 @@ const SET_EDIT_IMAGE_DESCRIPTION = 'SET_EDIT_IMAGE_DESCRIPTION';
 export default function imagesReducer(state = initialState, action) {
   switch (action.type) {
     case SET_IMAGE:
-      return {...state, images: [...state.images, action.payload]};
+      return {...state, images: [action.payload, ...state.images]};
     case SET_EDIT_IMAGE_DESCRIPTION:
       return {
         ...state,
